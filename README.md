@@ -1,6 +1,6 @@
 # Middleman
 
-At Hack Club, we use airtable a lot. Sometimes it's hard to keep track of which apps are making calls to airtable, and considering the global airtable ratelimit. A common problem we run into is that one of our apps start to hit the limit with faulty retry logic, then bottleneck all of our services at once.
+At Hack Club, we use airtable a lot. Sometimes it's hard to keep track of which apps are making calls to airtable, and consuming the global airtable ratelimit. A common problem we run into is that one of our apps start to hit the limit with faulty retry logic, then bottleneck all of our services at once.
 
 Middleman is a way to pipe all of our airtable requests through one location so we can track which apps are the most noisy.
 
