@@ -14,12 +14,16 @@ You can just swap out your calls from `https://api.airtable.com/v0/api` to `http
 - const urlBase = 'https://api.airtable.com/v0/api/'
 + const urlBase = 'https://middleman.hackclub.com/airtable/v0/api/'
   const url = urlBase + 'YOUR_BASE_ID' + '/' + 'YOUR_TABLE_NAME'
+
   const response = await fetch(url, {
     headers: {
       Authorization: `Bearer ${apiKey}`,
+      'User-Agent': "MY_APP_NAME"
     },
   }).then(r => r.json())
 ```
+
+Please also set your `User-Agent` to something specific to your app! The whole point of this is to hunt down apps that are having trouble and we can't do that if we can't tell who you are!
 
 ## Airtable.js
 
