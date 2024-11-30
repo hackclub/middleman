@@ -10,12 +10,11 @@ Here's how you use it:
 
 You can just swap out your calls from `https://api.airtable.com/v0/api` to `https://middleman.hackclub.com/airtable/v0/api`. For example:
 
-```git
-- const urlBase = 'https://api.airtable.com/v0/api/'
-+ const urlBase = 'https://middleman.hackclub.com/airtable/v0/api/'
-  const url = urlBase + 'YOUR_BASE_ID' + '/' + 'YOUR_TABLE_NAME'
+```diff
+- const urlBase = 'https://api.airtable.com'
++ const urlBase = 'https://middleman.hackclub.com'
 
-  const response = await fetch(url, {
+  const response = await fetch(`${urlBase}/v0/api/SOME_BASE_ID/SOME_TABLE_ID`, {
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'User-Agent': "MY_APP_NAME"
@@ -30,3 +29,7 @@ Please also set your `User-Agent` to something specific to your app! The whole p
 Airtable.js's persistent retry logic is why we built this in the first place, so we don't really recommend using it. If you must though, it already has some built-in ways to handle this.
 
 You can just set `AIRTABLE_ENDPOINT_URL="https://middleman.hackclub.com/airtable"`
+
+## Deployment
+
+We deploy using fly.io using our [GitHub action](.github/workflows/fly.yml). This means anything pushed to main will automatically make & deploy a new build. Use this knowledge wisely.
